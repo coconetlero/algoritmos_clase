@@ -23,6 +23,7 @@ int main ()
     char *output = strcat(str01, str02); 
     
     printf("Cadena out = %s \n", output);
+    
     free(output);
 }
 
@@ -36,19 +37,33 @@ char * strcat(char *str_a, char * str_b)
     
     
     char *out = (char*)malloc(sizeof(char) * (s1 +s2));
+ 
+    /* forma uno */   
+    // for (int i = 0; i < s1; i++)
+//     {
+//         out[i] = *str_a;
+//         str_a++;
+//     }
+//
+//     for (int i = (s1-1); i < (s1+s2); i++)
+//     {
+//         out[i] = *str_b;
+//         str_b++;
+//     }
     
-    for (int i = 0; i < s1; i++) 
+    /* forma dos */   
+    for (int i = 0; i < (s1 + s2); i++)
     {
-        out[i] = *str_a;
-        str_a++;
+        if(i < s1)
+        {
+            out[i] = *str_a;
+            str_a++;
+        }
+        else {
+            out[i] = *str_b;
+            str_b++;
+        }
     }
-    
-    for (int i = (s1-1); i < (s1+s2); i++)
-    {
-        out[i] = *str_b;
-        str_b++;
-    }
-        
 
     return out;
 }
