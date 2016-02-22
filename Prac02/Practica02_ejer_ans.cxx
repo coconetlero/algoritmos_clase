@@ -37,33 +37,38 @@ char * strcat(char *str_a, char * str_b)
     
     
     char *out = (char*)malloc(sizeof(char) * (s1 +s2));
- 
+    int idx = 0;
+
     /* forma uno */   
-    // for (int i = 0; i < s1; i++)
-//     {
-//         out[i] = *str_a;
-//         str_a++;
-//     }
-//
-//     for (int i = (s1-1); i < (s1+s2); i++)
-//     {
-//         out[i] = *str_b;
-//         str_b++;
-//     }
+    for (int i = 0; i < s1; i++)
+    {
+        // out[idx] = *str_a;
+        // str_a++;
+        // idx++;
+        out[idx] = *(str_a + i);
+        idx++;
+    }
+
+    for (int i = 0; i < s2; i++)
+    {
+        // out[idx] = *str_b;
+        // str_b++;
+        // idx++;
+        out[idx] = *(str_b + i);
+        idx++;
+    }
     
     /* forma dos */   
-    for (int i = 0; i < (s1 + s2); i++)
-    {
-        if(i < s1)
-        {
-            out[i] = *str_a;
-            str_a++;
-        }
-        else {
-            out[i] = *str_b;
-            str_b++;
-        }
-    }
+    // for (int i = 0; i < (s1 + s2); i++)
+    // {
+    //     if(i < s1)
+    //     {
+    //         out[i] = *(str_a + i);
+    //     }
+    //     else {
+    //         out[i] = *(str_b + (i - s1));
+    //     }
+    // }
 
     return out;
 }
