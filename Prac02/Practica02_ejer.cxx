@@ -37,18 +37,9 @@ char * strcat(char *str_a, char * str_b)
     
     char *out = (char*)malloc(sizeof(char) * (s1 +s2));
     
-    for (int i = 0; i < s1; i++) 
-    {
-        out[i] = *str_a;
-        str_a++;
-    }
-    
-    for (int i = (s1-1); i < (s1+s2); i++)
-    {
-        out[i] = *str_b;
-        str_b++;
-    }
-        
+    /**
+     * tu codigo aqui
+     */
 
     return out;
 }
