@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <assert.h>
 
 /*
 Escribir un programa que realice el comportamiento de la función “strcat” , el alumno deberá de implementar su propia función que realice  la concatenación de dos cadenas de caracteres  que recibe como parámetro  y entrega como resultado un apuntador a la nueva cadena.
@@ -25,6 +26,7 @@ int main ()
     printf("Cadena out = %s \n", output);
     
     free(output);
+    output = NULL;
 }
 
 char * strcat(char *str_a, char * str_b) 
