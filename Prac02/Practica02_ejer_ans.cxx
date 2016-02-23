@@ -37,6 +37,8 @@ char * strcat(char *str_a, char * str_b)
     
     
     char *out = (char*)malloc(sizeof(char) * (s1 +s2));
+    assert(out != NULL);
+
     int idx = 0;
 
     /* forma uno */   
