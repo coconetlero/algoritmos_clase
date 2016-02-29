@@ -1,4 +1,4 @@
-
+#include <stdio.h>
 #include <math.h>
 #include <point.h>
 
@@ -24,4 +24,11 @@ float dot_product(Point *p, Point *q)
     float y = p->y * q->y;
     return x + y;
 }
+
+// --------------------------------------------------------------------------
+void print(Point *p)
+{
+    printf("(%0.2f, %0.2f) \n", p->x, p->y);
+}
+
 

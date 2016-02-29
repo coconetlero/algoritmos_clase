@@ -22,3 +22,8 @@ void move(Point *p, float dx, float dy);
  * Computes the dot product between two points
  */ 
 float dot_product(Point *p, Point *q);
+
+/**
+ * Prints the point
+ */
+void print(Point *p);
