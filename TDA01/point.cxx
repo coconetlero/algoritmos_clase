@@ -17,3 +17,11 @@ void move(Point *p, float dx, float dy)
     p->y += dy;
 }
 
+// --------------------------------------------------------------------------
+float dot_product(Point *p, Point *q)
+{
+    float x = p->x * q->x;
+    float y = p->y * q->y;
+    return x + y;
+}
+
