@@ -92,15 +92,41 @@ void print(Point *p)
 // --------------------------------------------------------------------------
 int main()
 {
-    Point p1; p1.x = 0; p1.y = 0;
-    Point p2; p2.x = 5; p2.y = 0;
-    Point p3; p3.x = 5; p3.y = 5;
-    Point p4; p4.x = 0; p4.y = 5;
+    // the square
+    Point s1; s1.x = 0; s1.y = 0;
+    Point s2; s2.x = 5; s2.y = 0;
+    Point s3; s3.x = 5; s3.y = 5;
+    Point s4; s4.x = 0; s4.y = 5;
     
-    Point p[] = {p1, p2, p3, p4};
+    Point S[] = {s1, s2, s3, s4};
 
+    printf(" --- El cuadrado --- \n");
     for(int i = 0; i < 4; i++)
-        print(&(p[i]));
+        print(&(S[i]));
+    
+    // the rectangle
+    Point r1; r1.x = 0; r1.y = 0;
+    Point r2; r2.x = 10; r2.y = 0;
+    Point r3; r3.x = 10; r3.y = 5;
+    Point r4; r4.x = 0; r4.y = 5;
+    
+    Point R[] = {r1, r2, r3, r4};
+
+    printf(" --- El rectangulo --- \n");
+    for(int i = 0; i < 4; i++)
+        print(&(R[i]));
+    
+    // the diamod
+    Point d1; d1.x = 0; d1.y = 0;
+    Point d2; d2.x = 5; d2.y = 2.5;
+    Point d3; d3.x = 0; d3.y = 5;
+    Point d4; d4.x = -5; d4.y = 2.5;
+    
+    Point D[] = {d1, d2, d3, d4};
+
+    printf(" --- El rombo --- \n");
+    for(int i = 0; i < 4; i++)
+        print(&(D[i]));
 
   return 0;      
     
