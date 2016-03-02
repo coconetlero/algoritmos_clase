@@ -9,23 +9,6 @@
 #include <stdio.h>
 #include <math.h>
 
-// struct paralelogram {
-//
-// }
-
-// void constructor(int num_points, Point *points);
-//
-// void is_triangle?(paralelogram *p);
-//
-// void is_square?(paralelogram *p);
-//
-// void is_rectangle?(paralelogram *p);
-  
-  
-  
-// --------------------------------------------------------------------------
-// --------------------------------------------------------------------------    
-
 
 struct Point
 {
@@ -56,6 +39,7 @@ float dot_product(Point *p, Point *q);
  */
 void print(Point *p);
 
+// --------------------------------------------------------------------------
 float distance(Point a, Point b)
 {
     float dx = a.x - b.x;
@@ -85,11 +69,28 @@ void print(Point *p)
     printf("(%0.2f, %0.2f) \n", p->x, p->y);
 }
 
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------    
+
+
+// struct Paralelogram {
+//
+// };
+//
+// Paralelogram constructor(int _num_points, Point *_points);
+
+// void is_triangle(paralelogram *p);
+//
+// void is_square(paralelogram *p);
+//
+// void is_rectangle(paralelogram *p);
+
+  
 
 
 // --------------------------------------------------------------------------
 // --------------------------------  Main  ----------------------------------
-// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------  
 int main()
 {
     // the square
@@ -97,8 +98,6 @@ int main()
     Point s2; s2.x = 5; s2.y = 0;
     Point s3; s3.x = 5; s3.y = 5;
     Point s4; s4.x = 0; s4.y = 5;
-    
-    Point S[] = {s1, s2, s3, s4};
 
     printf(" --- El cuadrado --- \n");
     for(int i = 0; i < 4; i++)
@@ -127,6 +126,7 @@ int main()
     printf(" --- El rombo --- \n");
     for(int i = 0; i < 4; i++)
         print(&(D[i]));
+    
 
   return 0;      
     

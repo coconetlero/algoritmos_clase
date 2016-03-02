@@ -17,3 +17,7 @@ a.out
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# test files #
+###################
+test.*
