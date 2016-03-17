@@ -37,4 +37,4 @@ void add_last(Linked_List *list, int _element);
 /**
  * Remove one element to the list
  */
-int getFirst(Linked_List *list);
+int get_first(Linked_List *list);
