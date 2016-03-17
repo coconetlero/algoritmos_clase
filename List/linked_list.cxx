@@ -15,14 +15,19 @@ bool is_empty(Linked_List *list)
 int size(Linked_List *list) 
 {
     Node *current = list->head;
-    
-    int counter = 1;
-    while(current->next != NULL)
+    if(is_empty(list))
     {
-        counter++;
-        current = current->next;
+        return 0;
     }
-    return counter;        
+    else {
+        int counter = 1;
+        while(current->next != NULL)
+        {
+            counter++;
+            current = current->next;
+        }
+        return counter;                
+    }    
 }
 
 // ----------------------------------------------------------------------------
@@ -79,4 +84,21 @@ void add_last(Linked_List *list, int _element)
 }
 
 // ----------------------------------------------------------------------------
-int getFirst(Linked_List *list);
+int get_first(Linked_List *list) 
+{
+    if (!is_empty(list))
+    {
+        Node *node = list->head;
+        int out = node->element;
+        list->head = node->next;
+        free(node);
+        
+        return out;            
+    }
+    else {
+        printf("Error: the list is empty \n");    
+        return NULL;
+    }
+}
+
+
