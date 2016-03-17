@@ -16,7 +16,7 @@ int size(Linked_List *list)
 {
     Node *current = list->head;
     
-    int counter = 0;
+    int counter = 1;
     while(current->next != NULL)
     {
         counter++;
