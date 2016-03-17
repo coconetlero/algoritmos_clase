@@ -22,7 +22,7 @@ int size(Linked_List *list)
         counter++;
         current = current->next;
     }
-    return size;        
+    return counter;        
 }
 
 // ----------------------------------------------------------------------------
@@ -60,7 +60,7 @@ void add_last(Linked_List *list, int _element)
     
     node->element = _element;
     
-    if (is_empty(queue))
+    if (is_empty(list))
     {
         list->head = node;        
         node->next = NULL;
@@ -74,7 +74,7 @@ void add_last(Linked_List *list, int _element)
             current = current->next;
         }            
         current->next = node;           
-        node->next == null;
+        node->next == NULL;
     }   
 }
 
