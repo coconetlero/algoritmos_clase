@@ -1,0 +1,17 @@
+1.- Usando la implementación de la estructura de datos cola, simular el aviso 
+    de un anuncio luminoso, de rotación de caracteres. El anuncio desplegara 5
+    caracteres mientras que la cola debera de tener mas de 5 caracteres.
+    
+2.- Ampliar la implementación de la estructura cola dada con el método:
+
+    void head_enqueue(Queue *queue, int element);
+    
+    El cual añade un elemento por la cabeza de la lista.
+    
+3.- Ampliar la implementación de la estructura cola dada con el método:
+
+    int tail_dequeue(Queue *queue);
+    
+    El cual desencola un elemento por la cola de la cola.
+    
+    
