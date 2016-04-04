@@ -70,7 +70,7 @@ void add_last(Linked_List *list, int _element)
             current = current->next;
         }            
         current->next = node;           
-        node->next == NULL;
+        node->next = NULL;
     }   
 }
 
