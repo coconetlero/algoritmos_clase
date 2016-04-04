@@ -1,0 +1,31 @@
+1.- Implementar un método
+    
+    void split(Linked_List *list, int index, Linked_List *l1, Linked_List *l2);
+    
+    El cual parte la lista *list en dos sublistas a la altura del nodo en la
+    posición index cada una de las sublistas quedarán guardadas en la lista *l1 y *l2
+    
+2.- Implementar un método
+    
+        void merge(Linked_List *list, Linked_List *l1, Linked_List *l2);
+    
+        El cual concatena la lista *l1 con la lista l2 para formar la lista *list 
+    
+3.- Implementar el método:
+
+    void add(Linked_List *list, int index, int _element);
+    
+    El cual inserta el elemento _element en la posición index de la lista *list    
+    el método hará llamadas a los mmetodos implementados en los ejercicios 1 y 2 de 
+    tal manera que el metodo add tendrá la siguiete estructura 
+    
+    void add(Linked_List *list, int index, int _element)
+    {
+        Linked_List *l1;
+        Linked_List *l2;
+        
+        split(list, index, l1, l2);
+        add_last(l1, _element);
+        merge(list, l1, l2);
+    }
+    
