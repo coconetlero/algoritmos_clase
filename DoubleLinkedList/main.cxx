@@ -27,7 +27,10 @@ int main(int argc, char **argv)
     printf("list size = %d \n", size(list));
     
     
-    printf("\n\n");
+    printf("\n");
+    printf("list = ");
+    print_list(list);
+    printf("\n");
     
     int elem = remove_first(list);
     assert(elem);

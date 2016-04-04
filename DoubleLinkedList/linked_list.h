@@ -57,4 +57,9 @@ int remove_first(Linked_List *list);
  */
 int index_of(Linked_List *list, int _element);
 
-void print(Linked_List *list);
+/**
+ * Print the list in the standar output
+ */
+void print_list(Linked_List *list);
+
+

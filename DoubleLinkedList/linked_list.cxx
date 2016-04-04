@@ -172,6 +172,29 @@ int index_of(Linked_List *list, int _element)
     }
 }
 
+// ----------------------------------------------------------------------------
+void print_list(Linked_List *list)
+{
+    if (!is_empty(list))
+    {
+        printf("[");
+        Node *current = list->head;
+        while(current != NULL)
+        {           
+            printf("%d", current->data);    
+            if (current->next != NULL)
+            {
+                printf(", ");
+            }
+            current = current->next;
+        }       
+        printf("]\n");
+    }
+    else {
+        printf("Error: the list is empty \n");    
+    }
+}
+
 
 
 
