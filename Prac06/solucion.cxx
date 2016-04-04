@@ -95,90 +95,137 @@ void print_queue(Queue *queue)
 
 }
 
+// ----------------------------------------------------------------------------        
+void ejer01(Queue *queue)
+{
+    printf("\n");
+    for (int j = 0; j < 12; j++)
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            printf("%d ", *(queue->array + ((queue->head + i) % queue->max_size)));
+        }
+        enqueue(queue, dequeue(queue));
+        printf("\n");             
+    }    
+        
+    printf("\n\n");     
+    
+}
+
+// ----------------------------------------------------------------------------  
+void head_enqueue(Queue *queue, int element)
+{
+    if (!is_full(queue))
+    {        
+        if (is_empty(queue)) 
+        {
+            queue->tail = 0;
+            queue->head = 0;    
+            queue->array[queue->head] = element;            
+        } 
+        else {
+            if (queue->head == 0)
+                 queue->head = queue->max_size-1;
+            else
+                queue->head--;
+
+            queue->array[queue->head] = element;
+        }
+        queue->current_size++;
+    }
+    else 
+    {
+        printf("Error - the queue if full \n");     
+    }   
+}
+
+// ----------------------------------------------------------------------------  
+int tail_dequeue(Queue *queue)
+{
+    if(!is_empty(queue))
+    {
+        int out = queue->array[queue->tail];
+        queue->array[queue->tail] = 0;
+        
+        if(queue->tail == 0)
+            queue->tail = queue->max_size-1;
+        else
+            queue->tail--;
+
+        queue->current_size--;
+        return out;
+    }
+    else
+    {
+        printf("Error - the queue is empty \n");   
+        return NULL;
+    }
+}
 
 // ----------------------------------------------------------------------------  
 int main()
 {
-    int _max_size = 5;
+    int _max_size = 12;
 
     int * array = (int *) malloc(sizeof(int) * _max_size); 
     assert(array != NULL);
         
     Queue queue;
     queue.array = array;
-    queue.head = 0;
-    queue.tail = 0;
+    queue.head = NULL;
+    queue.tail = NULL;
     queue.max_size = _max_size;
     
-    
-    
     print_queue(&queue);
     
+    enqueue(&queue, 1);
+    enqueue(&queue, 2);
+    enqueue(&queue, 3);
+    enqueue(&queue, 4);
     enqueue(&queue, 5);
-    printf("Enqueue %d \n", 5);
-    enqueue(&queue, 10);
-    printf("Enqueue %d \n", 10);
+    enqueue(&queue, 6);
     enqueue(&queue, 7);
-    printf("Enqueue %d \n", 7);
+    enqueue(&queue, 8);
     
-    int value;
-    value = dequeue(&queue);    
-    printf("dequeue value is: %d \n", value);
-    value = dequeue(&queue);    
-    printf("dequeue value is: %d \n", value);
-    value = dequeue(&queue);    
-    printf("dequeue value is: %d \n", value);
-    
-    
-    
-    printf("The list is: \n");
     print_queue(&queue);
+    
+    printf("Letrero luminiso \n");
+    
+    // comprobacion ejercicio #1
+    ejer01(&queue);
+    
+    // comprobacion ejercicio #2
+    printf("Encolar por la cabeza \n");
+    printf("Head = %d, Tail = %d \n", queue.head, queue.tail);
+    print_queue(&queue);
+
+    head_enqueue(&queue, 20);
+    head_enqueue(&queue, 21);
     
     printf("Head = %d, Tail = %d \n", queue.head, queue.tail);
-    
-    enqueue(&queue, 5);
-    printf("Enqueue %d \n", 5);
-    enqueue(&queue, 10);
-    printf("Enqueue %d \n", 10);
-    enqueue(&queue, 7);
-    printf("Enqueue %d \n", 7);
-    
-    printf("The list is: \n");
     print_queue(&queue);
     
-    
+    // comprobacion ejercicio #3
+    printf("desencolar por la cola \n");
     printf("Head = %d, Tail = %d \n", queue.head, queue.tail);
+    print_queue(&queue);
+
+    int data;
+    data = tail_dequeue(&queue);
+    printf("dequeue value is: %d \n", data);
     
-    printf("dequeue value is: %d \n", dequeue(&queue));
-    printf("dequeue value is: %d \n", dequeue(&queue));
+    data = tail_dequeue(&queue);
+    printf("dequeue value is: %d \n", data);
+    
+    data = tail_dequeue(&queue);
+    printf("dequeue value is: %d \n", data);
+    
+    printf("\n");
     printf("Head = %d, Tail = %d \n", queue.head, queue.tail);
-    
     print_queue(&queue);
     
-    enqueue(&queue, 25);
-    printf("Enqueue %d \n", 25);
-    enqueue(&queue, 32);
-    printf("Enqueue %d \n", 32);
     
-    printf("Head = %d, Tail = %d \n", queue.head, queue.tail);
     
-    print_queue(&queue);
-    
-    printf("Enqueue %d \n", 50);
-    enqueue(&queue, 50);
-    
-    print_queue(&queue);
-    printf("Head = %d, Tail = %d \n", queue.head, queue.tail);
-    
-    printf("Enqueue %d \n", 380);
-    enqueue(&queue, 380);
-    
-    print_queue(&queue);
-    printf("Head = %d, Tail = %d \n", queue.head, queue.tail);
-    
-    printf("Enqueue %d \n", 22);
-    enqueue(&queue, 22);
-    print_queue(&queue);
-   
     free(array);
 }
