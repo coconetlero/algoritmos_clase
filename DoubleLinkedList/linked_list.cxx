@@ -3,6 +3,17 @@
 #include <assert.h>
 #include <linked_list.h>
 
+// ----------------------------------------------------------------------------
+Linked_List * create_linked_list()
+{
+    Linked_List *list = new Linked_List;
+    list->head = NULL;
+    list->tail = NULL;
+    
+    return list;
+}
+
+// ----------------------------------------------------------------------------
 bool is_empty(Linked_List *list)
 {
     if (list->head == NULL && list->tail == NULL)

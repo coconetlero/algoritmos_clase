@@ -17,6 +17,11 @@ struct Linked_List {
 };   
 
 /**
+ * Create one instace of a Linked List and return a pointer to it
+ */
+Linked_List * create_linked_list();
+
+/**
  * test if the Queue is empty
  */
 bool is_empty(Linked_List *list);
