@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <queue.h>
 #include <assert.h>
+#include <queue.h>
 
 
 int main(int argc, char **argv)
@@ -50,6 +50,26 @@ int main(int argc, char **argv)
     enqueue(&queue, 50);
     
     print_queue(&queue);
+    printf("Head = %d, Tail = %d \n", queue.head, queue.tail);
+    
+    printf("Enqueue %d \n", 380);
+    enqueue(&queue, 380);
+    
+    print_queue(&queue);
+    printf("Head = %d, Tail = %d \n", queue.head, queue.tail);
+    
+    printf("Enqueue %d \n", 22);
+    enqueue(&queue, 22);
+    print_queue(&queue);
+    printf("Head = %d, Tail = %d \n", queue.head, queue.tail);
+    
+    printf("dequeue given value is: %d \n", dequeue(&queue));
+    printf("dequeue given value is: %d \n", dequeue(&queue));
+    printf("Head = %d, Tail = %d \n", queue.head, queue.tail);
+    
+    printf("dequeue given value is: %d \n", dequeue(&queue));
+    printf("dequeue given value is: %d \n", dequeue(&queue));
+    printf("Head = %d, Tail = %d \n", queue.head, queue.tail);
     
     free(array);
 }

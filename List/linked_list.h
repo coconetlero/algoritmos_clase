@@ -8,7 +8,7 @@ struct Node
 };
 
 /**
- * Implements the functionality of a dynamic Queue 
+ * Implements the functionality of a dynamic List 
  */
 struct Linked_List { 
     Node *head;   

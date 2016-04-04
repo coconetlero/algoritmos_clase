@@ -6,7 +6,7 @@ int main(int argc, char **argv)
 {
     printf("Create the queue \n");
     
-    Queue queue;
+    Queue queue;    
     queue.head = NULL;
     queue.tail = NULL;
     
