@@ -37,7 +37,7 @@ Linked_List * create_linked_list()
 
 // ----------------------------------------------------------------------------
 /**
- * test if the Queue is empty
+ * test if the Linked List is empty
  */
 bool is_empty(Linked_List *list)
 {
