@@ -1,0 +1,27 @@
+----> Practica 08 <----
+Ejercicios
+
+1.- Modificar el archivo double_linked_list.cxx de tal manera que se implemente
+    una lista circular doblemente ligada.
+
+2.- Modificar la estructura Linked_List, de tal manera que se tenga una referencia
+    extra a un nodo en particular de la lista de nombre "current", e implementar los
+    métodos siguientes:
+    
+    /*
+     * Regresa el contenido del nodo al que apunta current
+     */  
+    int at(Linked_List *list);
+    
+    /*
+     * Incrementa una posición en la lista la referencia de current
+     */
+     void fwd(Linked_List *list)
+     
+    /*
+     * Decrementa una posición en la lista la referencia de current
+     */
+     void bwd(Linked_List *list)
+     
+3.- Crear un programa donde se pueda verificar que los métodos modificados e implementados
+    funcionan correctamente.
