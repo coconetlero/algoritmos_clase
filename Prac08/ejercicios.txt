@@ -5,8 +5,11 @@ Ejercicios
     una lista circular doblemente ligada.
 
 2.- Modificar la estructura Linked_List, de tal manera que se tenga una referencia
-    extra a un nodo en particular de la lista de nombre "current", e implementar los
-    métodos siguientes:
+    extra a un nodo en particular de la lista de nombre "current", si la lista es 
+    vacía current apuntará a NULL, cuando se agrega el primer elemento current apuntara
+    al nuevo elemento.
+    
+3.- Implementar los siguientes métodos :
     
     /*
      * Regresa el contenido del nodo al que apunta current
@@ -23,5 +26,5 @@ Ejercicios
      */
      void bwd(Linked_List *list)
      
-3.- Crear un programa donde se pueda verificar que los métodos modificados e implementados
+4.- Crear un programa donde se pueda verificar que los métodos modificados e implementados
     funcionan correctamente.
