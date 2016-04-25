@@ -1,0 +1,29 @@
+Practica 10 
+
+1.- Implementar en Python la función listcat que concatena dos listas. La función 
+    recibe como parametro dos listas y de vuelve una tercera que es el resultado 
+    de concatenar las dos listas de entrada. 
+    Nota: para esta función queda prohibido hacer uso de las funciones ya implementadas
+    en Python
+    
+    def listcat(l1, l2):
+    
+2.- Realizar un programa en Python que le pida al usuario un número indetermindo
+    de cadenas. El programa debera tener un menú con dos opciones: (1) Ingresar y 
+    (2) Concatenar. Mientras se seleccione la opción 1, el usuario podrá ingresar
+    cadenas. Cuando se seleccione la opción 2 se mandará a llamar a la función 
+    implementada en el ejercicio 1 para poder concatener e imprimir las cadenas
+    introducidas como una sola.
+    
+    
+    Notas: 
+    Se puede usar una lista de listas para guardar las cadenas introducidas por el usuario
+    
+    Pasar una cadena a una lista.
+    
+    cadena = "ponganse a trabajar" 
+    x = list(cadena)
+    print(x)
+    >> ['p', 'o', 'n', 'g', 'a', 'n', 's', 'e', ' ', 'a', ' ', 't', 'r', 'a', 'b', 'a', 'j', 'a', 'r']
+    
+    
