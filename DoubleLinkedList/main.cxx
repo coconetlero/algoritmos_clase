@@ -56,4 +56,5 @@ int main(int argc, char **argv)
     assert(elem);
     printf("get head element = %d \n", elem);
     
+    free(list);
 }
