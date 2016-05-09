@@ -3,16 +3,19 @@ class Vertex(object):
     def __init__(self, name):
         self.name = name
         self.adjacent = {}
-    
+
     def __str__(self):
         return str(self.name) + "->" + str([x.name for x in self.adjacent])
-    
+
     def add_neighbor(self, vertex, edge_weight):
         self.adjacent[vertex] = edge_weight
 
+    def get_neighbors(self):
+        return self.adjacent
+
 
 class Graph(object):
-    
+
     def __init__(self):
         self.nodes = {}
 
@@ -23,13 +26,42 @@ class Graph(object):
         v1 = self.nodes[from_node]
         v2 = self.nodes[to_node]
         v1.add_neighbor(v2, edge_weight)
-        
+
     def get_vertexes(self):
-        return nodes
-        
+        return self.nodes
+
+
+
 if __name__ == '__main__':
 
+    def Dijksrta(Graph, source, target):
+        # creamos 
+        Q = []
+        dist = {}
+        prev = {}
+
+        # Sea V el conjunto de vertices de la grafica
+        V = Graph.get_vertexes()
+
+        # Para cada uno de los vertices "v" de la grafica inicializamos dist y prev
+        # e ingresamos v a la lista Q.
+        for name, v in V.items():
+            dist[v.name] = float("inf")
+            prev[v.name] = None
+            Q.append(v)
+
+        dist[source.name] = 0
+
+        while len(Q) > 0:
+            # aqui va el resto del algoritmo 
+
+
+    # end dijkstra
+
+    # construimos una grafica
     g = Graph()
+
+    # aniadimos los vertices
     g.add_vertex('0')
     g.add_vertex('1')
     g.add_vertex('2')
@@ -39,12 +71,13 @@ if __name__ == '__main__':
     g.add_vertex('6')
     g.add_vertex('7')
 
+    # agregamos las aristas
     g.add_edge('0', '1', 5)
     g.add_edge('0', '7', 8)
     g.add_edge('0', '4', 9)
     g.add_edge('1', '3', 15)
     g.add_edge('1', '7', 4)
-    g.add_edge('1', '2', 2)
+    g.add_edge('1', '2', 12)
     g.add_edge('2', '3', 3)
     g.add_edge('2', '6', 11)
     g.add_edge('3', '6', 9)
@@ -54,7 +87,19 @@ if __name__ == '__main__':
     g.add_edge('5', '6', 13)
     g.add_edge('5', '2', 1)
     g.add_edge('7', '2', 7)
-    g.add_edge('7', '6', 5)
-    
+    g.add_edge('7', '5', 6)
+
+    print("--------------- vertex 0 nad vertex 6 ----------------")
     print(g.nodes['0'])
-    print(g.nodes['6'])   
+    print(g.nodes['6'])
+    print("--------------- Graph ----------------")
+    # recorrer todos los vertices de la grafica G
+    N = g.get_vertexes()
+    for name, vertex in N.items():
+        print(vertex)
+
+    # llamada a la función Dijkstra con la grafica que acabamos de crear
+    print("--------------- Dijkstra ----------------")
+    prev = Dijksrta(g, g.nodes['0'], g.nodes['6'])
+
+
