@@ -53,8 +53,38 @@ if __name__ == '__main__':
         dist[source.name] = 0
 
         while len(Q) > 0:
-            # aqui va el resto del algoritmo 
+            # print(dist)
 
+            # obtenemos el vertice con menor valor de dist
+            temp_dist = float("inf")
+            temp_vertex = None
+
+            for v in Q:
+                # print(v.name, end=" ")
+
+                if dist[v.name] < temp_dist:
+                    temp_dist = dist[v.name]
+                    temp_vertex = v.name
+
+            # print()
+            idx = Q.index(V[temp_vertex])
+            u = Q.pop(idx)
+            # print(u, "\n")
+
+            # los vecinos de u
+            neighbors = u.get_neighbors()
+
+            # for v in neighbors:
+            #     print("v = ", v, "dist to ", v.name, "is", neighbors[v])
+
+            # para cada uno de los vecinos de u
+            for v in neighbors:
+                alt = dist[u.name] + neighbors[v]
+                if alt < dist[v.name]:
+                    dist[v.name] = alt
+                    prev[v.name] = u
+
+        return prev
 
     # end dijkstra
 
@@ -102,4 +132,6 @@ if __name__ == '__main__':
     print("--------------- Dijkstra ----------------")
     prev = Dijksrta(g, g.nodes['0'], g.nodes['6'])
 
-
+    for name, vertex in prev.items():
+        if vertex is not None:
+            print(name, "<-", vertex.name)
