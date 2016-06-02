@@ -1,20 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 #include <queue.h>
 
-     
 
-// ----------------------------------------------------------------------------        
+// ----------------------------------------------------------------------------
+Queue * create_queue(int size)
+{
+    int * array = (int *) malloc(sizeof(int) * size);
+    assert(array != NULL);
+
+    Queue *queue = new Queue;
+    queue->array = array;
+    queue->head = 0;
+    queue->tail = 0;
+    queue->max_size = size;
+    queue->current_size = 0;
+
+    return queue;
+}
+
+// ----------------------------------------------------------------------------
+void clear_queue(Queue *queue)
+{
+    free(queue->array);
+}
+
+// ----------------------------------------------------------------------------
 bool is_full(Queue *queue)
 {
-    if(queue->max_size == queue->current_size)
+    if (queue->max_size == queue->current_size)
         return true;
     else
         return false;
 }
 
-
-// ----------------------------------------------------------------------------        
+// ----------------------------------------------------------------------------
 bool is_empty(Queue *queue)
 {
     if(queue->current_size == 0)
@@ -23,74 +44,58 @@ bool is_empty(Queue *queue)
         return false;
 }
 
-// ----------------------------------------------------------------------------        
-void enqueue(Queue *queue, int element)
-{    
+// ----------------------------------------------------------------------------
+int enqueue(Queue *queue, int data)
+{
     if (!is_full(queue))
-    {        
-        if (is_empty(queue)) 
+    {
+        queue->array[queue->tail] = data;
+        queue->tail++;
+        queue->current_size++;
+
+        if (queue->tail == queue->max_size)
         {
             queue->tail = 0;
-            queue->head = 0;    
-            queue->array[queue->tail] = element;            
-        } 
-        else {
-            if (queue->max_size-1 == queue->tail)
-                 queue->tail = 0;
-            else
-                queue->tail++;
-
-            queue->array[queue->tail] = element;
         }
-        queue->current_size++;
-    }
-    else 
-    {
-        printf("Error - the queue if full \n");     
-    }    
-}
-
-// ----------------------------------------------------------------------------        
-int dequeue(Queue *queue)
-{
-    if(!is_empty(queue))
-    {
-        int out = queue->array[queue->head];
-        
-        if(queue->max_size-1 == queue->head)
-            queue->head = 0;
-        else
-            queue->head++;
-
-        queue->current_size--;
-        return out;
+        return 1;
     }
     else
     {
-        printf("Error - the queue is empty \n");   
+        printf("Error - the queue if full \n");
         return NULL;
     }
 }
 
-// ----------------------------------------------------------------------------        
-void print_queue(Queue *queue)
+// ----------------------------------------------------------------------------
+int dequeue(Queue *queue)
 {
     if(!is_empty(queue))
     {
-        for (int i = 0; i < queue->max_size; i++)
-            {
-                printf("%d ", *(queue->array + i));
-            }    
-        
-        printf("\n\n"); 
+        int data = queue->array[queue->head];
+        queue->head++;
+        queue->current_size--;
+
+        if (queue->head == queue->max_size)
+        {
+            queue->head = 0;
+        }
+        return data;
     }
     else
     {
-        printf("\n");
-        printf("> The queue is empty");   
-        printf("\n\n");
+        printf("Error - the queue is empty \n");
+        return NULL;
     }
-         
 }
 
-
+// ----------------------------------------------------------------------------
+void print_queue(Queue *queue)
+{
+    printf("Queue => [");
+    for (int i = 0; i < queue->max_size - 1; i++)
+    {
+        printf("%d, ", *(queue->array + i));
+    }
+    printf("%d]", *(queue->array + queue->max_size - 1));
+    printf("\n");
+}
