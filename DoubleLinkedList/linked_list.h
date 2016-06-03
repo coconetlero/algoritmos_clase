@@ -22,7 +22,7 @@ struct Linked_List {
 Linked_List * create_linked_list();
 
 /**
- * test if the Queue is empty
+ * test if this Linked List is empty
  */
 bool is_empty(Linked_List *list);
 
@@ -34,12 +34,12 @@ int size(Linked_List *list);
 /**
  * Inserts the specified element at the beginning of this list.
  */    
-void add_first(Linked_List *list, int _element);
+void add_front(Linked_List *list, int _element);
 
 /**
  * Add one element at the end of the list
  */    
-void add_last(Linked_List *list, int _element);
+void add_back(Linked_List *list, int _element);
 
 /**
  * Inserts the specified element at the specified position in this list.
@@ -49,7 +49,32 @@ void add(Linked_List *list, int index, int _element);
 /**
  * Removes and returns the first element from this list.
  */
-int remove_first(Linked_List *list);
+int remove_front(Linked_List *list);
+
+/**
+ * Removes and returns the last element from this list.
+ */
+int remove_back(Linked_List *list);
+
+/**
+ * Removes and returns the element in the index position on the list.
+ */
+int remove(Linked_List *list, int index);
+
+/**
+ * Returns the first element from this list.
+ */
+int get_front(Linked_List *list);
+
+/**
+ * Returns the last element from this list.
+ */
+int get_back(Linked_List *list);
+
+/**
+ * Returns the element in the index position on the list.
+ */
+int get(Linked_List *list, int index);
 
 /**
  * Returns the index of the first occurrence of the specified element in this list,

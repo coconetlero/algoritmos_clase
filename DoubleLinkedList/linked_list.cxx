@@ -73,7 +73,7 @@ void add(Linked_List *list, int index, int _element)
 }
 
 // ----------------------------------------------------------------------------
-void add_first(Linked_List *list, int _element) 
+void add_front(Linked_List *list, int _element) 
 {
     Node *node = (Node*)malloc(sizeof(Node)); 
     assert(node);
@@ -96,7 +96,7 @@ void add_first(Linked_List *list, int _element)
 }
 
 // ----------------------------------------------------------------------------
-void add_last(Linked_List *list, int _element)
+void add_back(Linked_List *list, int _element)
 {
     Node *node = (Node*)malloc(sizeof(Node)); 
     assert(node);
@@ -119,14 +119,46 @@ void add_last(Linked_List *list, int _element)
 }
 
 // ----------------------------------------------------------------------------
-int remove_first(Linked_List *list) 
+int remove(Linked_List *list, int index)
+{
+    if (!is_empty(list))
+    {
+        Node *current = list->head;
+        
+        int counter = 0;
+        while(counter != index)
+        {               
+            if (current->next == NULL)
+            {
+                printf("Error: the index is out of list bounds \n");
+                return NULL;
+            }
+            else {
+                current = current->next;
+                counter++;
+            }
+        }       
+        int out = current->data;
+        current->prev->next = current->next;
+        current->next->prev = current->prev;
+        free(current);
+        return out;
+    }
+    else {
+        printf("Error: the list is empty \n");    
+        return NULL;
+    }    
+}
+
+// ----------------------------------------------------------------------------
+int remove_front(Linked_List *list) 
 {
     if (!is_empty(list))
     {
         Node *node = list->head;
         int out = node->data;
 
-        if (list->head->next != NULL) 
+        if (list->head != list->tail) 
         {
             list->head = list->head->next;
             list->head->prev = NULL;
@@ -146,6 +178,87 @@ int remove_first(Linked_List *list)
 }
 
 // ----------------------------------------------------------------------------
+int remove_back(Linked_List *list) 
+{
+    if (!is_empty(list))
+    {
+        Node *node = list->tail;
+        int out = node->data;
+
+        if (list->head != list->tail) 
+        {
+            list->tail = list->tail->prev;
+            list->tail->next = NULL;
+        }
+        else {
+            list->head = NULL;
+            list->tail = NULL;
+        }
+        
+        free(node);        
+        return out;            
+    }
+    else {
+        printf("Error: the list is empty \n");    
+        return NULL;
+    }
+}
+
+// ----------------------------------------------------------------------------
+int get(Linked_List *list, int index)
+{
+    if (!is_empty(list))
+    {
+        Node *current = list->head;
+        
+        int counter = 0;
+        while(counter != index)
+        {               
+            if (current->next == NULL)
+            {
+                printf("Error: the index is out of list bounds \n");
+                return NULL;
+            }
+            else {
+                current = current->next;
+                counter++;
+            }
+        }       
+        return current->data;
+    }
+    else {
+        printf("Error: the list is empty \n");    
+        return NULL;
+    }    
+}
+
+// ----------------------------------------------------------------------------
+int get_front(Linked_List *list) 
+{
+    if (!is_empty(list))
+    {
+        return list->head->data;        
+    }
+    else {
+        printf("Error: the list is empty \n");    
+        return NULL;
+    }
+}
+
+// ----------------------------------------------------------------------------
+int get_back(Linked_List *list) 
+{
+    if (!is_empty(list))
+    {
+        return list->tail->data;
+    }
+    else {
+        printf("Error: the list is empty \n");    
+        return NULL;
+    }
+}
+
+// ----------------------------------------------------------------------------
 int index_of(Linked_List *list, int _element)
 {
     if (!is_empty(list))
@@ -157,6 +270,7 @@ int index_of(Linked_List *list, int _element)
         {               
             if (current->next == NULL)
             {
+                printf("Error: the serched element is not in the list")
                 return -1;
             }
             else {
@@ -175,24 +289,18 @@ int index_of(Linked_List *list, int _element)
 // ----------------------------------------------------------------------------
 void print_list(Linked_List *list)
 {
-    if (!is_empty(list))
-    {
-        printf("[");
-        Node *current = list->head;
-        while(current != NULL)
-        {           
-            printf("%d", current->data);    
-            if (current->next != NULL)
-            {
-                printf(", ");
-            }
-            current = current->next;
-        }       
-        printf("]\n");
-    }
-    else {
-        printf("Error: the list is empty \n");    
-    }
+    printf("List => [");
+    Node *current = list->head;
+    while(current != NULL)
+    {           
+        printf("%d", current->data);    
+        if (current->next != NULL)
+        {
+            printf(", ");
+        }
+        current = current->next;
+    }       
+    printf("]\n");  
 }
 
 
