@@ -108,7 +108,7 @@ class List(object):
         if not self.is_empty():
             current = self.head
             counter = 0
-            while counter != index:
+            while counter != index:                
                 if current.next is None:
                     print("Error: the index is out of bounds")
                     return None
@@ -116,8 +116,17 @@ class List(object):
                     current = current.next
                     counter += 1
 
-            current.prev.next = current.next
-            current.next.prev = current.prev
+            print(current.data)
+            if current.next is None:
+                self.tail = current.prev
+                current.prev.next = None
+            elif current.prev is None:
+                self.head = current.next
+                current.next.prev = None
+            else:
+                current.next.prev = current.prev
+                current.prev.next = current.next
+
             return current.data
         else:
             print("Error: the list is empty \n")

@@ -17,3 +17,11 @@ print("Add 11 in the thirth position")
 print("list size =", list.size())
 
 print(list)
+
+list.remove(3)
+
+print(list)
+
+list.remove(0)
+
+print(list)
